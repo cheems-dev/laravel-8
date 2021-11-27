@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCurso;
 use App\Models\Curso;
+use Illuminate\Support\Str;
 
 
 class CursoController extends Controller
@@ -26,6 +27,7 @@ class CursoController extends Controller
 
     public function store(StoreCurso $request)
     {
+        $request->request->add(['slug' => Str::slug($request->name, '-')]);
         $curso = Curso::create($request->all());
         return redirect()->route('cursos.show', $curso);
     }

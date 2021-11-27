@@ -27,7 +27,7 @@ class CursoFactory extends Factory
             'name' => $curso,
             'slug' => Str::slug($curso, '-'),
             'description' => $this->faker->paragraph(),
-            'categoria' => $this->faker->randomElement(['Desarrollo Web', 'Diseño Web']),
+            'categoria' => $this->faker->randomElement(['ñ', 'Diseño Web']),
         ];
     }
 }
